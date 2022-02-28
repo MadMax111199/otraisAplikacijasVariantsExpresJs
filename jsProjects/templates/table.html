@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block singnOut %}
+                        <li class="navbar__btn">
+                            <a href="/singout" class="button__sign"> Singn Out </a>
+                        </li>
+{% endblock %}
+{% block about %}
+<li class="navbar__item">
+                            <a href="/about" class="navbar__links"> About </a>
+                        </li>
+{% endblock %}
+
+{% block boot %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+{% endblock %}
+{% block main %}
+<div class="container">
+  <div class="row justify-content-around">
+    <div class="col-8">
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">City number</th>
+      <th scope="col">City</th>
+      <th scope="col">Owner Name</th>
+        <th scope="col">Owner Surname</th>
+        <th scope="col">Owner Phone</th>
+	  <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <th scope="row">Noliktava</th>
+      <td>Rīga</td>
+      <td>Omnivia</td>
+          <td> - </td>
+          <td>+371 27 042 424</td>
+	  <td>Omniva, Centrs, Centra rajons, Rīga</td>
+    </tr>
+  {% for i in range((session["routs"])|length) %}
+      <tr>
+      <th scope="row">{{ i }}</th>
+      <td>{{ session["routs"][i]["city"] }}</td>
+      <td>{{ session["routs"][i]["name"] }}</td>
+          <td>{{ session["routs"][i]["surname"] }}</td>
+          <td>{{ session["routs"][i]["tel"] }}</td>
+	  <td>{{ session["routs"][i]["adress"] }}</td>
+    </tr>
+    {% endfor %}
+  <tr>
+      <th scope="row">Noliktava</th>
+      <td>Rīga</td>
+      <td>Omnivia</td>
+          <td> - </td>
+          <td>+371 27 042 424</td>
+	  <td>Omniva, Centrs, Centra rajons, Rīga</td>
+    </tr>
+</tbody>
+
+      <thead>
+    <tr>
+      <th scope="col">Range</th>
+      <th scope="col">
+          {% if session["routs"] %}
+                {{session["routs"][0]["distance"] }} km
+          {% else %}
+            0 km
+          {% endif %}
+      </th>
+    </tr>
+  </thead>
+</table>
+
+<br>
+	<button onclick="clearAllData()"class="btn btn-primary">Clear all data</button>
+
+    </div>
+    <div class="col-4">
+	<div class="info">
+	<label for="exampleInputName" class="form-label">Enter the name</label>
+		</div>
+		<div>
+	        <input autocomplete="off" type="text" name="name" placeholder="Name" id="peopleName" class="input-card">
+		</div>
+	    <br>
+		<div class="info">
+			<label for="exampleInputSurame" class="form-label">Enter the surname</label>
+		</div>
+		<div>
+			<input autocomplete="off" type="text" name="surname" placeholder="Surname" id="peopleSurname" class="input-card">
+		</div>
+		<br>
+		<div class="info">
+			<label for="exampleInputCity" class="form-label">Choose the city</label>
+		</div>
+		<div>
+			<select class="form-control city" id="peopleCity" name="city">
+            {% for i in exCity %}
+			<option>{{ i }}</option>
+                {% endfor %}
+			</select>
+		</div>
+		<br>
+		<div class="info">
+			<label for="exampleInputAddress" class="form-label">Enter the address</label>
+		</div>
+		<div class="info">
+			<input autocomplete="off" type="text" name="adress" id="peopleAdress" placeholder="Address"  class="input-card">
+		</div>
+		<br>
+		<div class="info">
+		 <label for="exampleInputPhone" class="form-label">Enter the phone</label>
+	</div>
+	<div class="info">
+	<input autocomplete="off" type="text" name="tel" placeholder="Phone" id="peopleTel" class="input-card">
+	</div>
+	<br>
+	<button onclick="getRout()" class="btn btn-primary">Submit</button>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+

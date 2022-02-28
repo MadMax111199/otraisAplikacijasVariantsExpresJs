@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+ {% block styleCss %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='/css/stylee.css', v=2)}}">
+ {% endblock %}
+{% block login %}
+                        <li class="navbar__item">
+                            <a href="/login" class="navbar__links"> Log In </a>
+                     </li>
+{% endblock %}
+{% block about %}
+<li class="navbar__item">
+                            <a href="/about" class="navbar__links"> About </a>
+                        </li>
+{% endblock %}
+{% block main %}
+<div class="header">
+  	<h2>Registracija</h2>
+  </div>
+  <form method="post" action="/register">
+  	<div class="input-group">
+  	  <label>Username</label>
+  	  <input type="text" name="username" >
+  	</div>
+  	<div class="input-group">
+  	  <label>Email</label>
+  	  <input type="email" name="email" >
+  	</div>
+  	<div class="input-group">
+  	  <label>Password</label>
+  	  <input type="password" name="password">
+  	</div>
+  	<div class="navbar__btn">
+  	  <button type="submit" class="btn" name="reg_user">Register</button>
+  	</div>
+  	<p>
+  		Jau esmu registrejis: <a href="\login">Ienakt</a>
+  	</p>
+  </form>
+{% endblock %}
+
+
+
+
+
+
+
+

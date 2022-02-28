@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block goMain %}
+                        <li class="navbar__btn">
+                            <a href="/main" class="button__sign"> To Main</a>
+                        </li>
+{% endblock %}
+ {% block styleCss %}
+{#     <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='/css/styles.css', v=3)}}">#}
+     <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='/css/style.css', v=5)}}">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+ {% endblock %}
+
+{% block main %}
+
+    <div>
+
+      <div class="about-section">
+        <h1>About</h1>
+        <p>Attālumu matrica un pats algoritms.</p>
+        <p>Attālumu matrica ir definēta jau kodā, lai lietotājs neievadītu visus datus pats.</p>
+        <p>Tiek izvēlēts Brute Force algoritms, jo pilsētu skaits ir mazāks nekā 9 un kombināciju skaits nav pārāk liels, lai zaudētu ātrdarbību. No priekšrocībām var atzīmēt to, ka algoritms VIENMĒR atrod labāku ceļu.</p>
+        <p>Algoritma būtība ir visu maršrutu kombināciju ģenerēšana un labāka maršruta saglabāšana pēc atrašanas.</p>
+        </div>
+
+    </div>
+    <div>
+
+      <div class="column__algh">
+        <div class="card__algh">
+          <img src="{{ url_for( 'static', filename='img/matrix.jpg', v=1)}}" alt="John" style="width:100%">
+          <div class="container">
+            <h2>Matrix</h2>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div id="snackbar"></div>
+    <script src="{{ url_for( 'static', filename='js/script.js', v=1)}}"></script>
+
+{% endblock %}

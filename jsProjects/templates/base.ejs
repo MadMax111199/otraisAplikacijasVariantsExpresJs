@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='/css/styles.css', v=5)}}">
+    {% block styleCss %}{% endblock %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    {% block boot %}{% endblock %}
+
+    <title>Preču piegādes maršrutēšana</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar__container">
+                <a href="/" id="navbar__logo">
+                    <i class="fas fa-truck-moving"></i> Choose the best route
+                </a>
+                <div class="navbar__toggle" id="mobile-menu">
+                    <span class="bar"></span><span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="navbar__menu">
+                    {% block about %}{% endblock %}
+                    {% block login %}{% endblock %}
+                    {% block singUp %}{% endblock %}
+                    {% block singnOut %}{% endblock %}
+                    {% block goMain %}{% endblock %}
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    {% block main %}{% endblock %}
+
+</body>
+<script src="{{ url_for( 'static', filename='js/script.js', v=1)}}"></script>
+
+</html>
